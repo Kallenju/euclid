@@ -1,0 +1,45 @@
+{
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "babel-loader": "^8.2.5",
+    "browser-sync": "^2.27.10",
+    "cross-env": "^7.0.3",
+    "imports-loader": "^4.0.0",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "accordion-js": "^3.3.0",
+    "autoprefixer": "^10.4.7",
+    "core-js": "^3.23.2",
+    "cssnano": "^5.1.12",
+    "polyfill-library": "^4.1.0",
+    "postcss-css-variables": "^0.18.0",
+    "swiper": "^8.2.4"
+  },
+  "browserslist": {
+    "modern": [
+      "defaults and supports css-variables"
+    ],
+    "legacy": [
+      "last 2 versions",
+      ">0.02%",
+      "supports flexbox",
+      "not supports es6-module",
+      "not supports css-variables",
+      "not IE < 11",
+      "not IE_mob < 11"
+    ]
+  },
+  "scripts": {
+    "makeCSS:modern": "postcss ./styles/style.css -o ./styles/style.css",
+    "makeCSS:legacy": "postcss ./styles --dir ./styles/stylesForLegacyBrowsers",
+    "buildJS:modern": "webpack --env browsers=modern",
+    "buildJS:legacy": "webpack --env browsers=legacy",
+    "localServer": "browser-sync start --config ./browsersync/bs-config.js"
+  }
+}
